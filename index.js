@@ -1,7 +1,7 @@
 var port      = process.env['PORT'] || 8888;
 var http      = require('http');
 var app       = require("express")()
-var getFeed   = require("./util/get_vehicals")
+var getFeed   = require("./util/get_vehicles")
 var _         = require("lodash");
 
 app.get("/api/feed", function(req, res, next) {
