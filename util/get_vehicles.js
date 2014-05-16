@@ -32,7 +32,7 @@ module.exports.near = function(location) {
             .filter(function(bus) {
               return bus.distanceFrom <= radius;
             })
-            .values()
+            .valueOf()
   });
 }
 
