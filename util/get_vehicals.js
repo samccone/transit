@@ -12,7 +12,7 @@ module.exports = function() {
 
 module.exports.near = function(location) {
   // in KM, limit to 5k
-  var distance = Math.min(location.distance || 2000, 5000);
+  var radius = Math.min(location.radius || 2000, 5000);
 
   if (!location.latitude || !location.longitude) {
     throw new Error("you must pass latitude and longitude as query params");
@@ -20,9 +20,19 @@ module.exports.near = function(location) {
 
   return getFeed()
   .then(function(d) {
-    return _.filter(d, function(d) {
-      return geolib.isPointInCircle(d.vehicle.position, location, distance)
-    });
+    return  _(d)
+            .map(function(bus) {
+              return _.extend(bus, {
+                distanceFrom: geolib.getDistance(
+                  bus.vehicle.position,
+                  location
+                )
+              });
+            })
+            .filter(function(bus) {
+              return bus.distanceFrom <= radius;
+            })
+            .values()
   });
 }
 
