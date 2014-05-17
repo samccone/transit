@@ -1,4 +1,5 @@
-var controllers  = require("./controllers");
+var fs          = require("fs");
+var controllers = require("./controllers");
 
 module.exports = function(app) {
   app.get("/api/feed", controllers.feed.index);
@@ -10,4 +11,8 @@ module.exports = function(app) {
 
   app.get("/api/passages", controllers.passages.index);
   app.get("/api/passages/:route_id", controllers.passages.get);
+
+  app.get("*", function(req, res){
+    fs.createReadStream(__dirname+"/README.md").pipe(res);
+  });
 }
