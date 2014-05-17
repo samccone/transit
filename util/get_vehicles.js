@@ -51,7 +51,7 @@ function getFeed() {
 
   return requestFeed()
   .then(function(d) {
-    memoryCache.put("feed", d, 5000);
+    memoryCache.put("feed", d, 1000 * 10);
     return d;
   });
 }

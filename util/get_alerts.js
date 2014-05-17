@@ -12,6 +12,10 @@ module.exports = function() {
 
   return Get(feedUrl, {encoding: null})
   .then(function(d) {
-    return Transit.FeedMessage.decode(d[0].body).entity
+    d = Transit.FeedMessage.decode(d[0].body).entity;
+
+    memoryCache.put("alerts", d, 1000 * 60 * 4);
+
+    return d;
   })
 }
