@@ -8,6 +8,8 @@ A realtime webserver feed api of bostons buses
 * `/api/route/:route_id`
 * `/api/feed/near?latitude=<>&longitude=<>[&radius=<in meters>]`
 * `/api/alerts`
+* `/api/passages`
+* `/api/passages/:route_id`
 
 > All end points support an optional callback=<name> param for `JSONP`.
 

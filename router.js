@@ -6,5 +6,8 @@ module.exports = function(app) {
 
   app.get("/api/route/:route_id", controllers.route.get);
 
+
+  app.get("/api/passages", controllers.passages.index);
+  app.get("/api/passages/:route_id", controllers.passages.get);
   app.get("/api/alerts", controllers.alerts.index)
 }
