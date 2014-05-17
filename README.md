@@ -7,6 +7,7 @@ A realtime webserver feed api of bostons buses
 * `/api/feed`
 * `/api/route/:route_id`
 * `/api/feed/near?latitude=<>&longitude=<>[&radius=<in meters>]`
+* `/api/alerts`
 
 ## Developing
 

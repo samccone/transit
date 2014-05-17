@@ -1,7 +1,10 @@
-var contollers  = require("./controllers");
+var controllers  = require("./controllers");
 
 module.exports = function(app) {
-  app.get("/api/feed", contollers.feed.index);
-  app.get("/api/route/:route_id", contollers.route.get)
-  app.get("/api/feed/near", contollers.feed.near);
+  app.get("/api/feed", controllers.feed.index);
+  app.get("/api/feed/near", controllers.feed.near);
+
+  app.get("/api/route/:route_id", controllers.route.get);
+
+  app.get("/api/alerts", controllers.alerts.index)
 }
