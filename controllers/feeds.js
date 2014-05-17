@@ -1,5 +1,6 @@
-var getFeed   = require("../util/get_vehicles");
-var getRoute  = require("../util/get_route");
+var getFeed      = require("../util/get_vehicles");
+var getRoute     = require("../util/get_route");
+var getPassages  = require("../util/get_passages");
 
 module.exports = {
   index: function(req, res, next) {
@@ -22,6 +23,14 @@ module.exports = {
       .then(function() {
         return d;
       });
+    })
+    .map(function(d) {
+      return getPassages
+      .byRoute(d.vehicle.trip.route_id)
+      .then(function(passage) {
+        d.passage = passage;
+        return d;
+      })
     })
     .then(res[req.query.callback ? "jsonp" : "json"].bind(res))
     .catch(next);
