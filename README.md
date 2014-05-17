@@ -1,13 +1,19 @@
-### transit 
-a realtime feed of bostons buses 
+Transit
+==========
+A realtime webserver feed api of bostons buses
+
+## End points
+
+* `/api/feed`
+* `/api/route/:route_id`
+* `/api/feed/near?latitude=<>&longitude=<>[&radius=<in meters>]`
+
+## Developing
+
+* `$ npm install`
+* `$ MBTA_KEY=XXXX npm start`
 
 
-```
-$ npm install
-```
+## Get your developer key from
 
-```
-$ node sample.js
-```
-
-http://localhost:8888/
+realtime.mbta.com/Portal/Account/Login
