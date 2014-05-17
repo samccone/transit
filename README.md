@@ -9,6 +9,8 @@ A realtime webserver feed api of bostons buses
 * `/api/feed/near?latitude=<>&longitude=<>[&radius=<in meters>]`
 * `/api/alerts`
 
+> All end points support an optional callback=<name> param for `JSONP`.
+
 ## Developing
 
 * `$ npm install`

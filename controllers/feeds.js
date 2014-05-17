@@ -4,7 +4,7 @@ var getRoute  = require("../util/get_route");
 module.exports = {
   index: function(req, res, next) {
     getFeed()
-    .then(res.json.bind(res))
+    .then(res[req.query.callback ? "jsonp" : "json"].bind(res))
     .catch(next)
   },
 
@@ -23,7 +23,7 @@ module.exports = {
         return d;
       });
     })
-    .then(res.json.bind(res))
+    .then(res[req.query.callback ? "jsonp" : "json"].bind(res))
     .catch(next);
   }
 }
