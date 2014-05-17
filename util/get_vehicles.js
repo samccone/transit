@@ -30,8 +30,10 @@ module.exports.near = function(location) {
               });
             })
             .map(function(bus) {
-              bus.vehicle.position.latitude = parseFloat(bus.vehicle.position.latitude)
-              bus.vehicle.position.longitude = parseFloat(bus.vehicle.position.longitude)
+              bus.vehicle.position = {
+                latitude: parseFloat(bus.vehicle.position.latitude),
+                longitude: parseFloat(bus.vehicle.position.longitude)
+              }
 
               return bus;
             })
