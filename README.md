@@ -15,9 +15,12 @@ A realtime webserver feed api of bostons buses
 
 ## Developing
 
-* `$ npm install`
-* `$ MBTA_KEY=XXXX npm start`
+* install docker
+* install boot2docker
 
+* `docker build --tag=transit --rm=true .`
+* `boot2docker ssh -L 8888:localhost:8888`
+* `run -it transit`
 
 ## Get your developer key from
 
