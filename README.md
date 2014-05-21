@@ -20,7 +20,7 @@ A realtime webserver feed api of bostons buses
 
 * `docker build --tag=transit --rm=true .`
 * `boot2docker ssh -L 8888:localhost:8888`
-* `run -it transit`
+* `docker run -it -p 8888:8888 transit`
 
 ## Get your developer key from
 
