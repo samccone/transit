@@ -28,7 +28,7 @@ csv.parse(fs.readFileSync("seed/stops.txt", "utf8"), function(e, d) {
       "stop_id": item[0],
       "stop_code": item[1],
       "stop_name": item[2],
-      "stop": knex.raw("ST_GeomFromText('POINT("+parseFloat(item[4])+" "+parseFloat(item[5])+")', 4326)"),
+      "stop": knex.raw("ST_GeomFromText('POINT("+parseFloat(item[5])+" "+parseFloat(item[4])+")', 4326)"),
       "stop_lat": parseFloat(item[4]),
       "stop_lng": parseFloat(item[5])
     }
