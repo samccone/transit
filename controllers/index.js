@@ -2,5 +2,6 @@ module.exports = {
   feed: require("./feeds"),
   route: require("./routes"),
   alerts: require("./alerts"),
-  passages: require("./passages")
+  passages: require("./passages"),
+  stops: require("./stops")
 }

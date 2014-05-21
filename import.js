@@ -1,16 +1,7 @@
 var fs    = require("fs");
 var csv   = require("csv");
 var Knex  = require("knex");
-
-var knex = Knex.initialize({
-  client: 'pg',
-  connection: {
-    host     : '127.0.0.1',
-    user     : 'postgres',
-    password : 'password',
-    database : 'transit'
-  }
-});
+var knex = require("./db");
 
 var saves;
 
@@ -37,7 +28,9 @@ csv.parse(fs.readFileSync("seed/stops.txt", "utf8"), function(e, d) {
       "stop_id": item[0],
       "stop_code": item[1],
       "stop_name": item[2],
-      "stop": knex.raw("ST_GeomFromText('POINT("+parseFloat(item[4])+" "+parseFloat(item[5])+")', 4326)")
+      "stop": knex.raw("ST_GeomFromText('POINT("+parseFloat(item[4])+" "+parseFloat(item[5])+")', 4326)"),
+      "stop_lat": parseFloat(item[4]),
+      "stop_lng": parseFloat(item[5])
     }
   });
 

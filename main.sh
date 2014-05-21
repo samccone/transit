@@ -14,7 +14,9 @@ sudo su - postgres -c "psql -d transit -c \"
   CREATE TABLE stops
     ( stop_id    character(60),
       stop_code  character(60),
-      stop_name  character(90)
+      stop_name  character(90),
+      stop_lat   decimal,
+      stop_lng   decimal
     );
   SELECT AddGeometryColumn('stops','stop','4326','POINT',2);
 \""
