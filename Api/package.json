@@ -8,8 +8,7 @@
     "memory-cache": "0.0.5",
     "geolib": "^2.0.14",
     "knex": "~0.5.14",
-    "pg": "~3.1.0",
-    "csv": "^0.4.0"
+    "pg": "~3.1.0"
   },
   "start": "node index",
   "name": "transit",

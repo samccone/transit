@@ -8,7 +8,7 @@ module.exports = {
     var lng   = parseFloat(req.query.longitude);
 
     knex('stops')
-    .where(knex.raw("ST_Distance_Sphere(stop, ST_GeomFromText('POINT("+lat+" "+lng+")', 4326)) < "+dist+";"))
+    .where(knex.raw("ST_Distance_Sphere(ST_Centroid(stop), ST_GeomFromText('POINT("+lat+" "+lng+")', 4326)) < "+dist+";"))
     .then(res.json.bind(res))
     .catch(next);
   }

@@ -24,5 +24,4 @@ sudo su - postgres -c "psql -d transit -c \"
 echo 'importing transit info'
 nodejs import.js
 
-echo 'starting app'
-nodejs index.js
+echo 'DB ready'

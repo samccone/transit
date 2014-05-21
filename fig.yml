@@ -1,0 +1,10 @@
+api:
+  build: api
+  links:
+    - "db:db"
+  ports:
+    - "8888:8888"
+db:
+  build: database
+  ports:
+    - "5432:5432"

@@ -1,6 +1,6 @@
 FROM ubuntu
 
-EXPOSE 8888
+EXPOSE 5432
 
 RUN apt-get update
 RUN apt-get install -y nodejs nodejs-legacy npm wget unzip
@@ -11,13 +11,15 @@ RUN wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sud
 RUN apt-get update
 RUN apt-get install -y postgresql-9.3-postgis-2.1 libpq-dev
 
-# grab seed info from mbta
-ADD http://www.mbta.com/uploadedfiles/MBTA_GTFS.zip /var/apps/transit/mbta.zip
-
 ADD . /var/apps/transit
 WORKDIR /var/apps/transit
+RUN chmod +x main.sh
 
+# grab seed info from mbta
+ADD http://www.mbta.com/uploadedfiles/MBTA_GTFS.zip /var/apps/transit/mbta.zip
 RUN unzip -d seed/ mbta.zip
 
+# install node deps
 RUN npm install
+
 ENTRYPOINT sh main.sh
