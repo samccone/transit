@@ -25,4 +25,3 @@ echo 'importing transit info'
 nodejs import.js
 
 echo 'DB ready'
-while :; do ; sleep 1; done
