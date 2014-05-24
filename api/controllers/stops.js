@@ -18,18 +18,20 @@ function getStopRoutes(stop) {
 function getRouteInfo(route) {
   return getRouteDetails(route.route_id)
   .then(function(details) {
-    details.direction = details.direction.map(function(dir) {
-      dir.stop = _.map(dir.stop, function(stop){
-        if (_.isObject(stop)) {
-          return stop.stop_id
-        }
+    route.direction = details.direction.map(function(dir) {
+      if (dir.stop_ids) {
+        return dir;
+      }
 
-        return stop;
+      dir.stop_ids = _.map(dir.stop, function(stop){
+        return stop.stop_id
       })
+
+      delete dir.stop;
+
       return dir;
     });
 
-    route.details = details;
     return route;
   })
 }
