@@ -14,6 +14,7 @@ module.exports = function(app) {
 
   app.get("/api/near-stops", controllers.stops.near);
 
+  app.get("/api/routes-by-stop/:stop_id", controllers.routesByStop.get);
   app.get("*", function(req, res){
     fs.createReadStream(__dirname+"/README.md").pipe(res);
   });
