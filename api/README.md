@@ -11,7 +11,7 @@ A realtime webserver feed api of bostons buses
 * `/api/passages`
 * `/api/passages/:route_id`
 * `/api/routes-by-stop/:stop_id`
-* `/api/near-stops?latitude=<>&longitude=<>&distance=<in meters>`
+* `/api/near-stops?latitude=<>&longitude=<>&radius=<in meters>`
 
 > All end points support an optional callback=<name> param for `JSONP`.
 
